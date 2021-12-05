@@ -1,7 +1,6 @@
+import 'package:elfatek/size_config.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-
-import '../size_config.dart';
 
 class CustomSurffixIcon extends StatelessWidget {
   const CustomSurffixIcon({

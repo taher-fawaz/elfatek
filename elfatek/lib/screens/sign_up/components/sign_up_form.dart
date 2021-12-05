@@ -1,8 +1,8 @@
 import '../../main_screen/main_screen.dart';
 
-import '../../../components/custom_surfix_icon.dart';
-import '../../../components/default_button.dart';
-import '../../../components/form_error.dart';
+import 'package:elfatek/utils/components/custom_surfix_icon.dart';
+import 'package:elfatek/utils/components/default_button.dart';
+import 'package:elfatek/utils/components/form_error.dart';
 import 'package:flutter/material.dart';
 
 import '../../../constants.dart';

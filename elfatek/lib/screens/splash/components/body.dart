@@ -6,7 +6,7 @@ import 'package:flutter/material.dart';
 
 // This is the best practice
 import '../components/splash_content.dart';
-import '../../../components/default_button.dart';
+import 'package:elfatek/utils/components/default_button.dart';
 
 class Body extends StatefulWidget {
   const Body({Key? key}) : super(key: key);

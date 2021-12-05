@@ -69,6 +69,8 @@ InputDecoration inputDecorationStyle(String labelText) {
   );
 }
 
+const AutovalidateMode autoValidateMode = AutovalidateMode.onUserInteraction;
+
 const List<String> turkishCities = [
   "DÜZCE",
   "OSMANİYE",

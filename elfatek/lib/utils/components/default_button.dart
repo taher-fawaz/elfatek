@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:elfatek/size_config.dart';
 
-import '../constants.dart';
-import '../size_config.dart';
+import 'package:elfatek/constants.dart';
 
 class DefaultButton extends StatelessWidget {
   const DefaultButton({

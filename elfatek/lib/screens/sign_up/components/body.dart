@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../../components/socal_card.dart';
+import 'package:elfatek/utils/components/socal_card.dart';
 import '../../../constants.dart';
 import '../../../size_config.dart';
 import 'sign_up_form.dart';

@@ -1,5 +1,5 @@
-import '../../../components/no_account_text.dart';
-import '../../../components/socal_card.dart';
+import 'package:elfatek/utils/components/no_account_text.dart';
+import 'package:elfatek/utils/components/socal_card.dart';
 import 'package:flutter/material.dart';
 
 import '../../../size_config.dart';

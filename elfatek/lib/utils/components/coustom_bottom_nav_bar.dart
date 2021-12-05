@@ -1,8 +1,7 @@
+import 'package:elfatek/constants.dart';
+import 'package:elfatek/enums.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-
-import '../constants.dart';
-import '../enums.dart';
 
 class CustomBottomNavBar extends StatelessWidget {
   const CustomBottomNavBar({
