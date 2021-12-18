@@ -113,13 +113,13 @@ class ExampleFormState extends State<ExampleForm> {
   Future savePressed() async {
     final form = _formKey.currentState;
 
-    if (form!.validate()) {
-      form.save();
-      showResults(context, _ponyModel);
-    } else {
-      showErrors(context);
-      setState(() => _autoValidateMode = AutovalidateMode.onUserInteraction);
-    }
+    // if (form!.validate()) {
+    form!.save();
+    showResults(context, _ponyModel);
+    // } else {
+    // showErrors(context);
+    // setState(() => _autoValidateMode = AutovalidateMode.onUserInteraction);
+    // }
   }
 
   void resetPressed() {

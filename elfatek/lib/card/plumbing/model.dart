@@ -28,6 +28,9 @@ class PonyModel {
   int? taxNumberValue;
   String isActiveLabel = LocaleKeys.is_it_active.tr();
   bool isActiveValue = false;
+  bool isShowRefValue = false;
+  bool isCustomerSastified = false;
+
   String cityLabel = LocaleKeys.city.tr();
   PickerModel cityValue = citiesItems[1];
   String countryLabel = LocaleKeys.country.tr();
@@ -41,7 +44,8 @@ class PonyModel {
   String email2Label = LocaleKeys.email_2.tr();
   String email2Value = "";
   int age = 7;
-  PickerModel currentMainGroup = mainGroupPickers[1]; //TODO: "F";
+  PickerModel currentMainGroup = mainGroupPickers[1];
+  PickerModel interviewStatusItem = interviewStatusItems[1];
   String coatColor = 'D19FE4';
   String maneColor = '273873';
   bool hasSpots = false;
@@ -180,6 +184,10 @@ const List<PickerModel> citiesItems = <PickerModel>[
 const List<PickerModel> mainGroupPickers = <PickerModel>[
   PickerModel('Group 1', code: 'M'),
   PickerModel('Group 2', code: 'F'),
+];
+const List<PickerModel> interviewStatusItems = <PickerModel>[
+  PickerModel('Discussed', code: 'M'),
+  PickerModel('Not met', code: 'F'),
 ];
 const List<PickerModel> countriesItems = <PickerModel>[
   PickerModel('Turkey', code: 'M'),

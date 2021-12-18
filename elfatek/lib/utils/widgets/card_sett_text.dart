@@ -10,7 +10,8 @@ CardSettingsText buildCardSettingsTextDefault(
     @required String? hintText,
     String? initialValue,
     @required String? onSavedValue,
-    @required FocusNode? focusNode,
+    TextEditingController? controller,
+    FocusNode? focusNode,
     FocusNode? inputActionNode}) {
   // final GlobalKey<FormState> _nameKey = GlobalKey<FormState>();
   // final PonyModel _ponyModel = PonyModel();
@@ -19,7 +20,7 @@ CardSettingsText buildCardSettingsTextDefault(
 
   return CardSettingsText(
     key: key,
-    label: label!,
+    label: label!, controller: controller,
     keyboardType: TextInputType.text,
     hintText: hintText,
     initialValue: initialValue,
@@ -176,12 +177,12 @@ CardSettingsPhone buildCardSettingsNumeric(
     initialValue: initialValue,
     focusNode: focusNode,
     inputAction: inputAction,
-    inputActionNode: inputActionNode,
-    autovalidateMode: autoValidateMode,
+    inputActionNode: inputActionNode, maxLength: 9,
+    // autovalidateMode: autoValidateMode,
     validator: (value) {
       return null;
     },
-    onSaved: (value) => onSavedValue = value!,
+    // onSaved: (value) => onSavedValue = value!,
     onChanged: (value) {
       // setState(() {
       //   _ponyModel.boxOfficePhone = value!;
@@ -228,17 +229,13 @@ CardSettingsSwitch buildCardSettingsSwitch({
   @required String? label,
   bool? initialValue,
   @required bool? onSavedValue,
+  void Function(bool)? onChanged,
 }) {
   return CardSettingsSwitch(
     key: key,
     label: label!,
     initialValue: initialValue!,
     onSaved: (value) => onSavedValue = value!,
-    onChanged: (value) {
-      // setState(() {
-      //   _ponyModel.hasSpots = value;
-      // });
-      // widget.onValueChanged!('Has Spots?', value);
-    },
+    onChanged: onChanged,
   );
 }

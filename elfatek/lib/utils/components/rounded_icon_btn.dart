@@ -35,7 +35,7 @@ class RoundedIconBtn extends StatelessWidget {
       child: TextButton(
         style: TextButton.styleFrom(
           padding: EdgeInsets.zero,
-          primary: kPrimaryColor,
+          primary: Colors.indigo[400]!,
           backgroundColor: Colors.white,
           shape:
               RoundedRectangleBorder(borderRadius: BorderRadius.circular(50)),

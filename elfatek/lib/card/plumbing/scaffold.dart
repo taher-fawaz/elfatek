@@ -36,28 +36,28 @@ class _ExampleScaffoldState extends State<ExampleScaffold> {
     //   backgroundColor: Theme.of(context).backgroundColor,
     //   appBar: AppBar(
     //     title: Text("My Little Pony"),
-    //     actions: <Widget>[
-    //       IconButton(
-    //         icon: Theme.of(context).brightness == Brightness.dark
-    //             ? Icon(Icons.brightness_7)
-    //             : Icon(Icons.brightness_4),
-    //         onPressed: () => AdaptiveTheme.of(context).toggleThemeMode(),
-    //       ),
-    //       _cupertinoSwitchButton(),
-    //       IconButton(
-    //         icon: Icon(Icons.save),
-    //         onPressed: (_formWidgetKey.currentState == null)
-    //             ? null
-    //             : _formWidgetKey.currentState!.savePressed,
-    //       ),
-    //     ],
-    //     leading: IconButton(
-    //       icon: Icon(Icons.refresh),
+    //   actions: <Widget>[
+    //     IconButton(
+    //       icon: Theme.of(context).brightness == Brightness.dark
+    //           ? Icon(Icons.brightness_7)
+    //           : Icon(Icons.brightness_4),
+    //       onPressed: () => AdaptiveTheme.of(context).toggleThemeMode(),
+    //     ),
+    //     _cupertinoSwitchButton(),
+    //     IconButton(
+    //       icon: Icon(Icons.save),
     //       onPressed: (_formWidgetKey.currentState == null)
     //           ? null
-    //           : _formWidgetKey.currentState!.resetPressed,
+    //           : _formWidgetKey.currentState!.savePressed,
     //     ),
+    //   ],
+    //   leading: IconButton(
+    //     icon: Icon(Icons.refresh),
+    //     onPressed: (_formWidgetKey.currentState == null)
+    //         ? null
+    //         : _formWidgetKey.currentState!.resetPressed,
     //   ),
+    // ),
     //   body: form,
     // );
   }

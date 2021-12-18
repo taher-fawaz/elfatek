@@ -1,3 +1,5 @@
+import 'package:adaptive_theme/adaptive_theme.dart';
+
 import '../../sign_in/sign_in_screen.dart';
 
 import '../../../constants.dart';
@@ -94,7 +96,8 @@ class _BodyState extends State<Body> {
       height: 6,
       width: currentPage == index ? 20 : 6,
       decoration: BoxDecoration(
-        color: currentPage == index ? kPrimaryColor : const Color(0xFFD8D8D8),
+        color:
+            currentPage == index ? kPrimaryColorLight : const Color(0xFFD8D8D8),
         borderRadius: BorderRadius.circular(3),
       ),
     );

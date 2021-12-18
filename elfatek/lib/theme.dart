@@ -1,40 +1,15 @@
+import 'package:adaptive_theme/adaptive_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:hexcolor/hexcolor.dart';
 
 import 'constants.dart';
-
-ThemeData theme() {
-  return ThemeData(
-    primaryTextTheme: TextTheme(
-      headline6: TextStyle(color: Colors.lightBlue[50]), // app header text
-    ),
-    scaffoldBackgroundColor: Colors.white,
-    elevatedButtonTheme: ElevatedButtonThemeData(
-      style: ElevatedButton.styleFrom(
-          side: const BorderSide(width: .5),
-          primary: Colors.white,
-          textStyle: const TextStyle(
-            color: Colors.white,
-          ),
-          // fixedSize: const Size(300, 100),
-          shape:
-              RoundedRectangleBorder(borderRadius: BorderRadius.circular(50))),
-    ),
-    fontFamily: "Muli",
-    appBarTheme: appBarTheme(),
-    textTheme: textTheme(),
-    iconTheme: _iconTheme(),
-    cardTheme: cardTheme(),
-    inputDecorationTheme: inputDecorationTheme(),
-    visualDensity: VisualDensity.adaptivePlatformDensity,
-  );
-}
 
 InputDecorationTheme inputDecorationTheme() {
   OutlineInputBorder outlineInputBorder = OutlineInputBorder(
     borderRadius: BorderRadius.circular(28),
-    borderSide: const BorderSide(color: kTextColor),
+    borderSide: const BorderSide(color: kTextColorLight),
     gapPadding: 10,
   );
   return InputDecorationTheme(
@@ -42,7 +17,7 @@ InputDecorationTheme inputDecorationTheme() {
     // if you r using flutter less then 1.20.* then maybe this is not working properly
     // if we are define our floatingLabelBehavior in our theme then it's not applayed
     floatingLabelBehavior: FloatingLabelBehavior.always,
-    labelStyle: TextStyle(color: kPrimaryColor), // style for labels
+    labelStyle: TextStyle(color: Colors.indigo[400]!), // style for labels
 
     contentPadding: const EdgeInsets.symmetric(horizontal: 42, vertical: 20),
     enabledBorder: outlineInputBorder,
@@ -54,7 +29,11 @@ InputDecorationTheme inputDecorationTheme() {
 CardTheme cardTheme() {
   return CardTheme(
     shape: RoundedRectangleBorder(
-      side: BorderSide(width: 2, color: Colors.orange),
+      // side: BorderSide(
+      //     width: 2,
+      //     color: AdaptiveThemeMode == AdaptiveThemeMode.light
+      //         ? Colors.orange
+      //         : kPrimaryColorDark),
       borderRadius: BorderRadius.circular(20),
     ),
   );
@@ -62,58 +41,83 @@ CardTheme cardTheme() {
 
 TextTheme textTheme() {
   return TextTheme(
-    bodyText1: const TextStyle(color: kTextColor),
-    bodyText2: const TextStyle(color: kTextColor),
+    bodyText1: const TextStyle(color: kTextColorLight),
+    bodyText2: const TextStyle(color: kTextColorLight),
     button: TextStyle(color: Colors.deepPurple[900]), // button text
     subtitle1: TextStyle(color: Colors.grey[800]), // input text
     headline6: const TextStyle(color: Colors.white), // card header text
   );
 }
 
-AppBarTheme appBarTheme() {
-  return const AppBarTheme(
-    color: kPrimaryColor,
-    elevation: 0,
-    systemOverlayStyle:
-        SystemUiOverlayStyle(statusBarBrightness: Brightness.light),
-    // brightness: Brightness.light,
-    iconTheme: IconThemeData(color: Colors.black),
-    toolbarTextStyle: TextStyle(color: Color(0XFF8B8B8B), fontSize: 18),
-    // textTheme: TextTheme(
-    //   headline6: TextStyle(color: Color(0XFF8B8B8B), fontSize: 18),
-    // ),
-  );
-}
-
-IconThemeData _iconTheme() {
-  return const IconThemeData(color: Colors.white, size: 50);
+AppBarTheme appBarTheme(Brightness brightness) {
+  if (brightness == Brightness.light) {
+    return const AppBarTheme(
+      color: kSecondaryColorLight,
+      elevation: 0,
+      systemOverlayStyle:
+          SystemUiOverlayStyle(statusBarBrightness: Brightness.light),
+      // brightness: Brightness.light,
+      iconTheme: IconThemeData(color: Colors.black),
+      toolbarTextStyle: TextStyle(color: Color(0XFF8B8B8B), fontSize: 18),
+      // textTheme: TextTheme(
+      //   headline6: TextStyle(color: Color(0XFF8B8B8B), fontSize: 18),
+      // ),
+    );
+  } else {
+    return AppBarTheme(
+      color: kPrimaryColorDark,
+      elevation: 0,
+      systemOverlayStyle:
+          const SystemUiOverlayStyle(statusBarBrightness: Brightness.dark),
+      // brightness: Brightness.light,
+      iconTheme: const IconThemeData(color: Colors.grey),
+      toolbarTextStyle: const TextStyle(color: kTextColorDark, fontSize: 18),
+      // textTheme: TextTheme(
+      //   headline6: TextStyle(color: Color(0XFF8B8B8B), fontSize: 18),
+      // ),
+    );
+  }
 }
 
 ThemeData buildTheme(Brightness brightness) {
   if (brightness == Brightness.dark) {
     return ThemeData(
-      primarySwatch: Colors.teal,
+      primaryColor: HexColor('#16D950'),
+      cardTheme: cardTheme(),
+      cardColor: kPrimaryLightColorDark,
+      appBarTheme: appBarTheme(brightness),
+      iconTheme: const IconThemeData(color: Colors.white),
+      scaffoldBackgroundColor: HexColor('#141630'),
+      // secondaryHeaderColor: Colors.indigo[400], // card header background
+      // cardColor: (LinearGradient(
+      //   begin: Alignment.topLeft,
+      //   end: Alignment(0.8, 0.0), // 10% of the width, so there are ten blinds.
+      //   colors: <Color>[Color(0xffee0000), Color(0xffeeee00)], // red to yellow
+      //   tileMode: TileMode.repeated, // repeats the gradient over the canvas
+      // )), // card field background
       brightness: brightness,
       visualDensity: VisualDensity.adaptivePlatformDensity,
-      backgroundColor: Colors.black,
-      textTheme: GoogleFonts.paprikaTextTheme(TextTheme()),
-      fontFamily: GoogleFonts.getFont('Paprika').fontFamily,
+      backgroundColor: HexColor('#141630'),
+      textTheme: GoogleFonts.robotoTextTheme(
+          TextTheme(headline6: TextStyle(color: Colors.white))),
+      fontFamily: GoogleFonts.getFont('Roboto').fontFamily,
     );
   } else {
     return ThemeData(
-      primaryColor: Colors.teal, // app header background
-      secondaryHeaderColor: Colors.indigo[400], // card header background
-      cardColor: Colors.white, // card field background
-      backgroundColor: Colors.indigo[100], // app background color
-      textTheme: TextTheme(
-        button: TextStyle(color: Colors.deepPurple[900]), // button text
-        subtitle1: TextStyle(color: Colors.grey[800]), // input text
-        headline6: TextStyle(color: Colors.white), // card header text
-      ),
+      tabBarTheme: TabBarTheme(
+          labelStyle: TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
+      primaryColor: kPrimaryColorLight,
+      secondaryHeaderColor: kPrimaryColorLight,
+      appBarTheme: AppBarTheme(color: kPrimaryColorLight),
+      cardColor: Colors.white,
+      cardTheme: cardTheme(),
+      backgroundColor: Colors.indigo[100],
+      // textTheme: textTheme(),
+
       textButtonTheme: TextButtonThemeData(
         style: ButtonStyle(
           backgroundColor: MaterialStateProperty.all<Color>(
-              Colors.indigo[100]!), // button background color
+              kPrimaryColorLight), // button background color
           foregroundColor: MaterialStateProperty.all<Color>(
               Colors.white), // button text color
         ),
@@ -121,10 +125,13 @@ ThemeData buildTheme(Brightness brightness) {
       primaryTextTheme: TextTheme(
         headline6: TextStyle(color: Colors.lightBlue[50]), // app header text
       ),
+
       inputDecorationTheme: InputDecorationTheme(
         labelStyle: TextStyle(color: Colors.indigo[400]), // style for labels
       ),
-      fontFamily: GoogleFonts.getFont('Paprika').fontFamily,
+      textTheme: GoogleFonts.robotoTextTheme(
+          const TextTheme(headline6: TextStyle(color: Colors.white))),
+      fontFamily: GoogleFonts.getFont('Roboto').fontFamily,
       // cardTheme: CardTheme(
       //   shape: RoundedRectangleBorder(
       //     side: BorderSide(width: 2, color: Colors.orange),

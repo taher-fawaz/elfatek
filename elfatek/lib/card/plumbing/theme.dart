@@ -1,6 +1,8 @@
 import 'package:adaptive_theme/adaptive_theme.dart';
+import 'package:elfatek/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:hexcolor/hexcolor.dart';
 
 import 'scaffold.dart';
 
@@ -29,12 +31,15 @@ class ExampleTheme extends StatelessWidget {
 ThemeData _buildTheme(Brightness brightness) {
   if (brightness == Brightness.dark) {
     return ThemeData(
-      primarySwatch: Colors.teal,
+      // primarySwatch: Colors.teal,
+      primaryColor: HexColor('#16D950'), // app header background
+      secondaryHeaderColor: Colors.indigo[400], // card header background
+      cardColor: Colors.white, // card field background
       brightness: brightness,
       visualDensity: VisualDensity.adaptivePlatformDensity,
-      backgroundColor: Colors.black,
-      textTheme: GoogleFonts.paprikaTextTheme(TextTheme()),
-      fontFamily: GoogleFonts.getFont('Paprika').fontFamily,
+      backgroundColor: HexColor('#141630'),
+      textTheme: GoogleFonts.robotoTextTheme(const TextTheme()),
+      fontFamily: GoogleFonts.getFont('Roboto').fontFamily,
     );
   } else {
     return ThemeData(
@@ -59,7 +64,7 @@ ThemeData _buildTheme(Brightness brightness) {
         headline6: TextStyle(color: Colors.lightBlue[50]), // app header text
       ),
       inputDecorationTheme: InputDecorationTheme(
-        labelStyle: TextStyle(color: Colors.indigo[400]), // style for labels
+        labelStyle: TextStyle(color: Colors.white), // style for labels
       ),
       fontFamily: GoogleFonts.getFont('Paprika').fontFamily,
       // cardTheme: CardTheme(

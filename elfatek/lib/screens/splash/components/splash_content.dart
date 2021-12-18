@@ -21,7 +21,7 @@ class SplashContent extends StatelessWidget {
           "ELFATEK",
           style: TextStyle(
             fontSize: getProportionateScreenWidth(36),
-            color: kPrimaryColor,
+            color: kPrimaryColorLight,
             fontWeight: FontWeight.bold,
           ),
         ),
