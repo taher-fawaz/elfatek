@@ -37,12 +37,7 @@ CardSettingsText buildCardSettingsTextDefault(
       return null;
     },
     onSaved: (value) => onSavedValue = value!,
-    onChanged: (value) {
-      // setState(() {
-      //   _ponyModel.name = value;
-      // });
-      // widget.onValueChanged!('Name', value);
-    },
+    onChanged: (value) => onSavedValue = value,
   );
 }
 
@@ -67,12 +62,7 @@ CardSettingsRadioPicker buildCardSettingsRadioPicker({
       return null;
     },
     onSaved: (value) => onSavedValue = value!,
-    onChanged: (value) {
-      // setState(() {
-      //   _ponyModel.gender = value;
-      // });
-      // widget.onValueChanged!('Gender', value);
-    },
+    onChanged: (value) => onSavedValue = value,
   );
 }
 
@@ -98,12 +88,7 @@ CardSettingsSelectionPicker buildCardSettingsSelectionPicker({
       return null;
     },
     onSaved: (value) => onSavedValue = value!,
-    onChanged: (value) {
-      // setState(() {
-      //   _ponyModel.style = value;
-      // });
-      // widget.onValueChanged!('Style', value.code);
-    },
+    onChanged: (value) => onSavedValue = value,
   );
 }
 
@@ -114,6 +99,7 @@ CardSettingsParagraph buildCardSettingsParagraph({
   @required String? hintText,
   String? initialValue,
   @required String? onSavedValue,
+  TextEditingController? controller,
   @required int? lines,
 }) {
   return CardSettingsParagraph(
@@ -122,13 +108,9 @@ CardSettingsParagraph buildCardSettingsParagraph({
     initialValue: initialValue,
     numberOfLines: lines!,
     focusNode: focusNode,
+    controller: controller,
     onSaved: (value) => onSavedValue = value!,
-    onChanged: (value) {
-      // setState(() {
-      //   _ponyModel.description = value;
-      // });
-      // widget.onValueChanged!('Description', value);
-    },
+    onChanged: (value) => onSavedValue = value,
   );
 }
 
@@ -137,8 +119,9 @@ CardSettingsListPicker buildCardSettingsListPicker({
   required List<PickerModel> items,
   required String? label,
   required PickerModel? initialItem,
+  TextEditingController? controller,
   required String? hintText,
-  required PickerModel? onSavedValue,
+  required String? onSavedValue,
 }) {
   return CardSettingsListPicker<PickerModel>(
     key: key,
@@ -152,13 +135,11 @@ CardSettingsListPicker buildCardSettingsListPicker({
         return 'You must pick a $label.';
       return null;
     },
-    onSaved: (value) => onSavedValue = value!,
-    onChanged: (value) {
-      // setState(() {
-      //   _ponyModel.type = value;
-      // });
-      // widget.onValueChanged!('Type', value);
+    onSaved: (value) {
+      onSavedValue = value!.name;
+      // print(value);
     },
+    onChanged: (value) => onSavedValue = value.name,
   );
 }
 
@@ -183,12 +164,7 @@ CardSettingsPhone buildCardSettingsNumeric(
       return null;
     },
     // onSaved: (value) => onSavedValue = value!,
-    onChanged: (value) {
-      // setState(() {
-      //   _ponyModel.boxOfficePhone = value!;
-      // });
-      // widget.onValueChanged!('Box Office', value);
-    },
+    onChanged: (value) => onSavedValue = value,
   );
 }
 
@@ -215,12 +191,7 @@ CardSettingsEmail buildCardSettingsEmail(
       return null;
     },
     onSaved: (value) => onSavedValue = value!,
-    onChanged: (value) {
-      // setState(() {
-      //   _ponyModel.email = value;
-      // });
-      // widget.onValueChanged!('Email', value);
-    },
+    onChanged: (value) => onSavedValue = value,
   );
 }
 

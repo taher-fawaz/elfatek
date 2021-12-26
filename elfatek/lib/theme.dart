@@ -39,12 +39,15 @@ CardTheme cardTheme() {
   );
 }
 
-TextTheme textTheme() {
+TextTheme textTheme(Brightness brightness) {
   return TextTheme(
     bodyText1: const TextStyle(color: kTextColorLight),
     bodyText2: const TextStyle(color: kTextColorLight),
     button: TextStyle(color: Colors.deepPurple[900]), // button text
-    subtitle1: TextStyle(color: Colors.grey[800]), // input text
+    subtitle1: TextStyle(
+        color: brightness == Brightness.light
+            ? Colors.grey[800]
+            : Colors.white), // input text
     headline6: const TextStyle(color: Colors.white), // card header text
   );
 }
@@ -98,8 +101,7 @@ ThemeData buildTheme(Brightness brightness) {
       brightness: brightness,
       visualDensity: VisualDensity.adaptivePlatformDensity,
       backgroundColor: HexColor('#141630'),
-      textTheme: GoogleFonts.robotoTextTheme(
-          TextTheme(headline6: TextStyle(color: Colors.white))),
+      textTheme: GoogleFonts.robotoTextTheme(textTheme(brightness)),
       fontFamily: GoogleFonts.getFont('Roboto').fontFamily,
     );
   } else {
@@ -129,8 +131,7 @@ ThemeData buildTheme(Brightness brightness) {
       inputDecorationTheme: InputDecorationTheme(
         labelStyle: TextStyle(color: Colors.indigo[400]), // style for labels
       ),
-      textTheme: GoogleFonts.robotoTextTheme(
-          const TextTheme(headline6: TextStyle(color: Colors.white))),
+      textTheme: GoogleFonts.robotoTextTheme(textTheme(brightness)),
       fontFamily: GoogleFonts.getFont('Roboto').fontFamily,
       // cardTheme: CardTheme(
       //   shape: RoundedRectangleBorder(

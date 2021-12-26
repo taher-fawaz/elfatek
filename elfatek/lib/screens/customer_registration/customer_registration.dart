@@ -1,4 +1,6 @@
+import 'package:card_settings/card_settings.dart';
 import 'package:elfatek/constants.dart';
+import 'package:elfatek/model/customer_registration.dart';
 import 'package:elfatek/screens/customer_registration/components/customer_product.dart';
 import 'package:elfatek/screens/customer_registration/components/customer_contacts.dart';
 import 'package:elfatek/screens/customer_registration/components/customer_details.dart';
@@ -8,8 +10,7 @@ import 'package:flutter/material.dart';
 
 class CustomerRegistrationScreen extends StatefulWidget {
   static String routeName = "/customer_registration";
-
-  const CustomerRegistrationScreen({Key? key}) : super(key: key);
+  CustomerRegistrationScreen({Key? key}) : super(key: key);
 
   @override
   State<CustomerRegistrationScreen> createState() =>
@@ -19,6 +20,8 @@ class CustomerRegistrationScreen extends StatefulWidget {
 class _CustomerRegistrationScreenState extends State<CustomerRegistrationScreen>
     with TickerProviderStateMixin {
   int pageIndex = 0;
+  CustomerRegistration customerRegistration = CustomerRegistration();
+
   @override
   Widget build(BuildContext context) {
     TabController controller =
@@ -47,6 +50,7 @@ class _CustomerRegistrationScreenState extends State<CustomerRegistrationScreen>
               },
               controller: controller,
               tabs: const [
+                // Icon(Icons.ac_unit_outlined),
                 Tab(
                   text: "Details",
                 ),
@@ -69,16 +73,16 @@ class _CustomerRegistrationScreenState extends State<CustomerRegistrationScreen>
           children: [
             Visibility(
                 visible: pageIndex == 0 ? true : false,
-                child: CustomerDetailsSection()),
+                child: CustomerDetailsSection(customerRegistration)),
             Visibility(
                 visible: pageIndex == 1 ? true : false,
-                child: CustomerContactsSection()),
+                child: CustomerContactsSection(customerRegistration)),
             Visibility(
                 visible: pageIndex == 2 ? true : false,
                 child: CustomerStatus()),
             Visibility(
                 visible: pageIndex == 3 ? true : false,
-                child: CustomerProductSection()),
+                child: CustomerProductSection(customerRegistration)),
           ],
         ),
       ),

@@ -1,3 +1,5 @@
+import 'package:elfatek/screens/customer_records/customer_records_screen.dart';
+
 import 'screens/customer_interview/customer_interview_screen.dart';
 import 'screens/customer_registration/customer_registration.dart';
 import 'screens/main_screen/main_screen.dart';
@@ -21,7 +23,7 @@ final Map<String, WidgetBuilder> routes = {
   LoginSuccessScreen.routeName: (context) => const LoginSuccessScreen(),
   SignUpScreen.routeName: (context) => const SignUpScreen(),
   CustomerRegistrationScreen.routeName: (context) =>
-      const CustomerRegistrationScreen(),
+      CustomerRegistrationScreen(),
   MainScreen.routeName: (context) => const MainScreen(),
   CustomerInterviewScreen.routeName: (context) =>
       const CustomerInterviewScreen(),
@@ -29,7 +31,7 @@ final Map<String, WidgetBuilder> routes = {
   // CompleteProfileScreen.routeName: (context) => CompleteProfileScreen(),
   // OtpScreen.routeName: (context) => OtpScreen(),
   HomeScreen.routeName: (context) => const HomeScreen(),
-  // DetailsScreen.routeName: (context) => DetailsScreen(),
+  CutomerRecordScreen.routeName: (context) => CutomerRecordScreen(),
   // CartScreen.routeName: (context) => CartScreen(),
   // ProfileScreen.routeName: (context) => ProfileScreen(),
 };

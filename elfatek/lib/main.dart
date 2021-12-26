@@ -1,6 +1,8 @@
 import 'package:adaptive_theme/adaptive_theme.dart';
 import 'package:easy_localization/easy_localization.dart';
+import 'package:elfatek/provider/customer_revord_provider.dart';
 import 'package:elfatek/screens/main_screen/main_screen.dart';
+import 'package:provider/provider.dart';
 import 'translations/codegen_loader.g.dart';
 
 import 'routes.dart';
@@ -33,16 +35,18 @@ class MyApp extends StatelessWidget {
       light: buildTheme(Brightness.light),
       dark: buildTheme(Brightness.dark),
       builder: (_, theme) {
-        return MaterialApp(
-          localizationsDelegates: context.localizationDelegates,
-          supportedLocales: context.supportedLocales,
-          locale: context.locale,
-          initialRoute: SplashScreen.routeName,
-          title: 'Flutter Demo',
-          debugShowCheckedModeBanner: false,
-          theme: theme,
-          routes: routes,
-        );
+        return ChangeNotifierProvider(
+            create: (_) => CutomerRecords(),
+            child: MaterialApp(
+              localizationsDelegates: context.localizationDelegates,
+              supportedLocales: context.supportedLocales,
+              locale: context.locale,
+              initialRoute: SplashScreen.routeName,
+              title: 'Flutter Demo',
+              debugShowCheckedModeBanner: false,
+              theme: theme,
+              routes: routes,
+            ));
       },
     );
   }

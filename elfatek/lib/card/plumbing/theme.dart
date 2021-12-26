@@ -21,7 +21,7 @@ class ExampleTheme extends StatelessWidget {
         return MaterialApp(
           title: 'Card Settings Example',
           theme: theme,
-          home: ExampleScaffold(),
+          // home: ExampleScaffold(),
         );
       },
     );

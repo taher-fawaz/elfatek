@@ -1,10 +1,13 @@
 import 'package:card_settings/card_settings.dart';
 import 'package:elfatek/card/plumbing/model.dart';
+import 'package:elfatek/model/customer_registration.dart';
 import 'package:elfatek/utils/widgets/card_sett_text.dart';
 import 'package:flutter/material.dart';
 
 class CustomerContactsSection extends StatefulWidget {
-  const CustomerContactsSection({Key? key}) : super(key: key);
+  CustomerRegistration? customerRegistration;
+
+  CustomerContactsSection(customerRegistration, {Key? key}) : super(key: key);
 
   @override
   _CustomerContactsSectionState createState() =>
@@ -122,6 +125,7 @@ class _CustomerContactsSectionState extends State<CustomerContactsSection> {
                   key: _email2Key,
                   label: _ponyModel.email2Label,
                   onSavedValue: _ponyModel.email2Value,
+                  // widget.customerRegistration?.customerSatisfied,
                   focusNode: _email2Node,
                   initialValue: _ponyModel.email2Value,
                   inputActionNode: _websiteNode,

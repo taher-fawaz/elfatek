@@ -1,5 +1,6 @@
 import 'package:card_settings/card_settings.dart';
 import 'package:elfatek/card/plumbing/model.dart';
+import 'package:elfatek/model/customer_registration.dart';
 import 'package:elfatek/utils/widgets/card_sett_text.dart';
 import 'package:flutter/material.dart';
 
@@ -8,7 +9,9 @@ import 'package:elfatek/translations/locale_keys.g.dart';
 import 'package:easy_localization/easy_localization.dart';
 
 class CustomerProductSection extends StatefulWidget {
-  const CustomerProductSection({Key? key}) : super(key: key);
+  CustomerRegistration? customerRegistration;
+
+  CustomerProductSection(customerRegistration, {Key? key}) : super(key: key);
 
   @override
   _CustomerProductSectionState createState() => _CustomerProductSectionState();
@@ -16,7 +19,6 @@ class CustomerProductSection extends StatefulWidget {
 
 class _CustomerProductSectionState extends State<CustomerProductSection> {
   final GlobalKey<FormState> _isShowRefKey = GlobalKey<FormState>();
-  final GlobalKey<FormState> _isCustomerSastifiedKey = GlobalKey<FormState>();
 
   final GlobalKey<FormState> _currentProductBrandKey = GlobalKey<FormState>();
   final GlobalKey<FormState> _currentProductQuantityKey =
@@ -77,23 +79,6 @@ class _CustomerProductSectionState extends State<CustomerProductSection> {
                 label: LocaleKeys.show_reference.tr(),
                 onSavedValue: _ponyModel.isShowRefValue,
                 initialValue: _ponyModel.isShowRefValue,
-              ),
-              buildCardSettingsSwitch(
-                key: _isCustomerSastifiedKey,
-                label: LocaleKeys.customer_satisfied.tr(),
-                onSavedValue: _ponyModel.isCustomerSastified,
-                initialValue: _ponyModel.isCustomerSastified,
-                onChanged: (p0) {
-                  setState(() {
-                    _ponyModel.isCustomerSastified =
-                        !_ponyModel.isCustomerSastified;
-                  });
-                },
-              ),
-              CardSettingsText(
-                label: LocaleKeys.If_not_reason.tr(),
-                hintText: LocaleKeys.If_not_reason.tr(),
-                enabled: _ponyModel.isCustomerSastified,
               ),
             ],
           )
