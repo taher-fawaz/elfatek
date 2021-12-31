@@ -1,4 +1,5 @@
 import 'package:adaptive_theme/adaptive_theme.dart';
+import 'package:elfatek/screens/auth/auth_screen.dart';
 
 import '../../sign_in/sign_in_screen.dart';
 

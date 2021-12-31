@@ -1,6 +1,7 @@
 import 'package:adaptive_theme/adaptive_theme.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:elfatek/controller/provider/auth_provider.dart';
+import 'package:elfatek/screens/auth/auth_screen.dart';
 import 'package:provider/provider.dart';
 import 'translations/codegen_loader.g.dart';
 
@@ -40,7 +41,7 @@ class MyApp extends StatelessWidget {
               localizationsDelegates: context.localizationDelegates,
               supportedLocales: context.supportedLocales,
               locale: context.locale,
-              initialRoute: SplashScreen.routeName,
+              initialRoute: AuthScreen.routeName,
               title: 'Flutter Demo',
               debugShowCheckedModeBanner: false,
               theme: theme,

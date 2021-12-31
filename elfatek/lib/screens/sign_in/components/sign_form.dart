@@ -85,14 +85,19 @@ class _SignFormState extends State<SignForm> {
             press: () {
               // if (_formKey.currentState!.validate()) {
               // _formKey.currentState!.save();
-              userProvider.login(User(
-                  email: _emailController.text,
-                  password: _passwordController.text));
+              userProvider
+                  .login(User(
+                      email: _emailController.text,
+                      password: _passwordController.text))
+                  .then((value) {
+                print(value);
+                Navigator.pushReplacementNamed(
+                    context, LoginSuccessScreen.routeName);
+              });
 
               // if all are valid then go to success screen
               // KeyboardUtil.hideKeyboard(context);
-              Navigator.pushReplacementNamed(
-                  context, LoginSuccessScreen.routeName);
+
               // }
             },
           ),

@@ -37,7 +37,17 @@ class User {
       id: json['user']['id'],
       email: json['user']['email'],
       name: json['user']['name'],
-      token: json['token'],
+      token: json['token'] ?? '',
+    );
+  }
+  factory User.fromReqBodyToken(String body) {
+    Map<String, dynamic> json = jsonDecode(body);
+
+    return User(
+      // id: json['user']['id'],
+      // email: json['user']['email'],
+      // name: json['user']['name'],
+      token: json['token'] ?? '',
     );
   }
   Map<String, dynamic> toJson() => {

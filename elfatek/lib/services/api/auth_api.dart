@@ -20,8 +20,14 @@ class AuthAPI extends BaseAPI {
 
   Future<http.Response> logout(User user) async {
     http.Response response = await http.post(Uri.parse(super.logoutPath),
-        headers: super.headers, body: userToJson(user));
-
+        headers: {
+          'Content-type': 'application/json',
+          'Accept': 'application/json',
+          'Connection': 'keep-alive',
+          "Authorization": "Bearer ${user.token}",
+        },
+        body: userToJson(user));
+// ?token=
     return response;
   }
 }

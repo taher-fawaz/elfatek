@@ -1,3 +1,4 @@
+import 'package:elfatek/utils/components/no_account_text.dart';
 import 'package:flutter/material.dart';
 
 import '../../../utils/components/socal_card.dart';
@@ -19,15 +20,16 @@ class Body extends StatelessWidget {
           child: SingleChildScrollView(
             child: Column(
               children: [
-                SizedBox(height: SizeConfig.screenHeight * 0.04), // 4%
+                SizedBox(height: SizeConfig.screenHeight * 0.02), // 4%
                 Text("Register Account", style: headingStyle),
                 const Text(
                   "Complete your details or continue \nwith social media",
                   textAlign: TextAlign.center,
                 ),
-                SizedBox(height: SizeConfig.screenHeight * 0.08),
+                SizedBox(height: SizeConfig.screenHeight * 0.04),
                 const SignUpForm(),
-                SizedBox(height: SizeConfig.screenHeight * 0.08),
+
+                SizedBox(height: SizeConfig.screenHeight * 0.04),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
@@ -44,6 +46,10 @@ class Body extends StatelessWidget {
                       press: () {},
                     ),
                   ],
+                ),
+                SizedBox(height: getProportionateScreenHeight(20)),
+                const NoAccountText(
+                  isSignUp: true,
                 ),
                 SizedBox(height: getProportionateScreenHeight(20)),
                 Text(

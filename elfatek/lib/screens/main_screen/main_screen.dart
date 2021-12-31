@@ -2,6 +2,12 @@ import 'dart:io' show Platform;
 
 import 'package:adaptive_theme/adaptive_theme.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
+import 'package:elfatek/controller/provider/auth_provider.dart';
+import 'package:elfatek/screens/profile/profile_screen.dart';
+import 'package:elfatek/screens/sign_in/sign_in_screen.dart';
+import 'package:elfatek/services/api/auth_api.dart';
+import 'package:provider/provider.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import '../../constants.dart';
 
 import '../customer_records/customer_records_screen.dart';
@@ -50,6 +56,8 @@ class _MainScreenState extends State<MainScreen> {
   //     GlobalKey<ExampleFormState>();
   @override
   Widget build(BuildContext context) {
+    final userProvider = Provider.of<AuthProvider>(context);
+
     final size = MediaQuery.of(context).size;
 
     return Scaffold(
@@ -161,7 +169,9 @@ class _MainScreenState extends State<MainScreen> {
                         "My Account",
                         style: Theme.of(context).textTheme.subtitle1,
                       ),
-                      onClick: () {}),
+                      onClick: () {
+                        Navigator.pushNamed(context, ProfilePage.routeName);
+                      }),
                   MLMenuItem(
                       leading: const Icon(Icons.list),
                       trailing: const Icon(Icons.arrow_right),
@@ -188,7 +198,17 @@ class _MainScreenState extends State<MainScreen> {
                       "logout",
                       style: Theme.of(context).textTheme.subtitle1,
                     ),
-                    onClick: () {},
+                    onClick: () async {
+                      AuthProvider().logout(userProvider.user, context);
+                      // AuthProvider().isSignOut().then((value) {
+                      //   print('value2 $value');
+
+                      //   if (value == true) {
+                      //     Navigator.pushReplacementNamed(
+                      //         context, SignInScreen.routeName);
+                      //   }
+                      // });
+                    },
                   ),
                 ],
               );

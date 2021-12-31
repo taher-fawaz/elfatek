@@ -3,6 +3,9 @@ import 'package:hexcolor/hexcolor.dart';
 
 import 'size_config.dart';
 
+const String accessToken = 'token';
+const String showSplash = 'showSplash';
+
 const kPrimaryColorLight = Color(0xFFFF7643);
 const kPrimaryLightColorLight = Color(0xFFFFECDF);
 const kPrimaryGradientColorLight = LinearGradient(
@@ -38,6 +41,7 @@ const defaultDuration = Duration(milliseconds: 250);
 final RegExp emailValidatorRegExp =
     RegExp(r"^[a-zA-Z0-9.]+@[a-zA-Z0-9]+\.[a-zA-Z]+");
 const String kEmailNullError = "Please Enter your email";
+const String kNameNullError = "Please Enter your name";
 const String kInvalidEmailError = "Please Enter Valid Email";
 const String kPassNullError = "Please Enter your password";
 const String kShortPassError = "Password is too short";

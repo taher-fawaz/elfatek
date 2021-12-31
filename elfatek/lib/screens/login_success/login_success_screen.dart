@@ -1,4 +1,6 @@
+import 'package:elfatek/controller/provider/auth_provider.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 import 'components/body.dart';
 
@@ -8,10 +10,14 @@ class LoginSuccessScreen extends StatelessWidget {
   const LoginSuccessScreen({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
+    // final userProvider = Provider.of<AuthProvider>(context);
+
     return Scaffold(
       appBar: AppBar(
         leading: const SizedBox(),
-        title: const Text("Login Success"),
+        title: Consumer<AuthProvider>(builder: (context, value, child) {
+          return Text("Hello ${value.user.name}");
+        }),
       ),
       body: const Body(),
     );
