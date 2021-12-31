@@ -1,4 +1,4 @@
-import 'package:elfatek/screens/customer_records/customer_records_screen.dart';
+import 'screens/customer_records/customer_records_screen.dart';
 
 import 'screens/customer_interview/customer_interview_screen.dart';
 import 'screens/customer_registration/customer_registration.dart';
@@ -25,8 +25,8 @@ final Map<String, WidgetBuilder> routes = {
   CustomerRegistrationScreen.routeName: (context) =>
       CustomerRegistrationScreen(),
   MainScreen.routeName: (context) => const MainScreen(),
-  CustomerInterviewScreen.routeName: (context) =>
-      const CustomerInterviewScreen(),
+  // CustomerInterviewScreen.routeName: (context) =>
+  //     const CustomerInterviewScreen(),
 
   // CompleteProfileScreen.routeName: (context) => CompleteProfileScreen(),
   // OtpScreen.routeName: (context) => OtpScreen(),

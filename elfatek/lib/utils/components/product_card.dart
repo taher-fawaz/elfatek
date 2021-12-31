@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
-import 'package:elfatek/size_config.dart';
+import '../../size_config.dart';
 
-import 'package:elfatek/constants.dart';
+import '../../constants.dart';
 
 class ProductCard extends StatelessWidget {
   const ProductCard({

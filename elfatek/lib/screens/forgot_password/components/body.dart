@@ -1,9 +1,9 @@
-import 'package:elfatek/utils/components/custom_surfix_icon.dart';
-import 'package:elfatek/utils/components/no_account_text.dart';
+import '../../../utils/components/custom_surfix_icon.dart';
+import '../../../utils/components/no_account_text.dart';
 import 'package:flutter/material.dart';
 
-import 'package:elfatek/utils/components/default_button.dart';
-import 'package:elfatek/utils/components/form_error.dart';
+import '../../../utils/components/default_button.dart';
+import '../../../utils/components/form_error.dart';
 import '../../../constants.dart';
 import '../../../size_config.dart';
 

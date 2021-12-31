@@ -1,8 +1,11 @@
+import 'package:elfatek/controller/provider/auth_provider.dart';
+import 'package:elfatek/model/user.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
-import 'package:elfatek/utils/components/custom_surfix_icon.dart';
-import 'package:elfatek/utils/components/default_button.dart';
-import 'package:elfatek/utils/components/form_error.dart';
+import '../../../utils/components/custom_surfix_icon.dart';
+import '../../../utils/components/default_button.dart';
+import '../../../utils/components/form_error.dart';
 import '../../../constants.dart';
 import '../../../size_config.dart';
 import '../../login_success/login_success_screen.dart';
@@ -16,6 +19,9 @@ class SignForm extends StatefulWidget {
 
 class _SignFormState extends State<SignForm> {
   final _formKey = GlobalKey<FormState>();
+  final TextEditingController _emailController = TextEditingController();
+  final TextEditingController _passwordController = TextEditingController();
+
   String? email;
   String? password;
   bool? remember = false;
@@ -39,6 +45,7 @@ class _SignFormState extends State<SignForm> {
 
   @override
   Widget build(BuildContext context) {
+    final userProvider = Provider.of<AuthProvider>(context);
     return Form(
       key: _formKey,
       child: Column(
@@ -77,9 +84,13 @@ class _SignFormState extends State<SignForm> {
             text: "Continue",
             press: () {
               // if (_formKey.currentState!.validate()) {
-              //   _formKey.currentState!.save();
-              //   // if all are valid then go to success screen
-              //   KeyboardUtil.hideKeyboard(context);
+              // _formKey.currentState!.save();
+              userProvider.login(User(
+                  email: _emailController.text,
+                  password: _passwordController.text));
+
+              // if all are valid then go to success screen
+              // KeyboardUtil.hideKeyboard(context);
               Navigator.pushReplacementNamed(
                   context, LoginSuccessScreen.routeName);
               // }
@@ -92,6 +103,7 @@ class _SignFormState extends State<SignForm> {
 
   TextFormField buildPasswordFormField() {
     return TextFormField(
+      controller: _passwordController,
       obscureText: true,
       onSaved: (newValue) => password = newValue,
       onChanged: (value) {
@@ -105,7 +117,7 @@ class _SignFormState extends State<SignForm> {
         if (value!.isEmpty) {
           addError(error: kPassNullError);
           return "";
-        } else if (value.length < 8) {
+        } else if (value.length < 7) {
           addError(error: kShortPassError);
           return "";
         }
@@ -124,6 +136,7 @@ class _SignFormState extends State<SignForm> {
 
   TextFormField buildEmailFormField() {
     return TextFormField(
+      controller: _emailController,
       keyboardType: TextInputType.emailAddress,
       onSaved: (newValue) => email = newValue,
       onChanged: (value) {

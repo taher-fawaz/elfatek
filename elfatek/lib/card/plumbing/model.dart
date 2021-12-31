@@ -2,7 +2,7 @@ import 'package:easy_localization/easy_localization.dart';
 import 'dart:typed_data';
 
 import 'package:card_settings/card_settings.dart';
-import 'package:elfatek/translations/locale_keys.g.dart';
+import '../../translations/locale_keys.g.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 

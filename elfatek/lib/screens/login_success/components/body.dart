@@ -1,6 +1,6 @@
 import '../../main_screen/main_screen.dart';
 
-import 'package:elfatek/utils/components/default_button.dart';
+import '../../../utils/components/default_button.dart';
 import '../../../size_config.dart';
 import 'package:flutter/material.dart';
 

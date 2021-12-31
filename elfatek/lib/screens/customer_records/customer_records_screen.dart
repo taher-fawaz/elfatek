@@ -1,5 +1,6 @@
-import 'package:elfatek/controller/api_controller.dart';
-import 'package:elfatek/screens/customer_records/components/records_table.dart';
+import 'package:elfatek/services/api/customer_record_api.dart';
+
+import 'components/records_table.dart';
 import 'package:flutter/material.dart';
 
 class CutomerRecordScreen extends StatefulWidget {
@@ -22,7 +23,7 @@ class _CutomerRecordScreenState extends State<CutomerRecordScreen> {
         title: const Text('Syncfusion Flutter DataGrid'),
       ),
       body: FutureBuilder<dynamic>(
-        future: ApiController().getRequest(),
+        future: CustomerRecordsAPI().fetchCustomerRecordsData(),
         builder: (BuildContext context, AsyncSnapshot snapshot) {
           // print(snapshot.data.id);
 
@@ -30,6 +31,8 @@ class _CutomerRecordScreenState extends State<CutomerRecordScreen> {
             return const Center(child: CircularProgressIndicator());
           } else {
             if (snapshot.hasError) {
+              print(snapshot.data);
+
               return Center(child: Text('Error: ${snapshot.error}'));
             } else {
               return RecordsTable(

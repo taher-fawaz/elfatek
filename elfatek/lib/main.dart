@@ -1,13 +1,12 @@
 import 'package:adaptive_theme/adaptive_theme.dart';
 import 'package:easy_localization/easy_localization.dart';
-import 'package:elfatek/provider/customer_revord_provider.dart';
-import 'package:elfatek/screens/main_screen/main_screen.dart';
+import 'package:elfatek/controller/provider/auth_provider.dart';
 import 'package:provider/provider.dart';
 import 'translations/codegen_loader.g.dart';
 
 import 'routes.dart';
 import 'screens/splash/splash_screen.dart';
-import 'theme.dart';
+import 'controller/theme.dart';
 import 'package:flutter/material.dart';
 
 void main() async {
@@ -36,7 +35,7 @@ class MyApp extends StatelessWidget {
       dark: buildTheme(Brightness.dark),
       builder: (_, theme) {
         return ChangeNotifierProvider(
-            create: (_) => CutomerRecords(),
+            create: (_) => AuthProvider(),
             child: MaterialApp(
               localizationsDelegates: context.localizationDelegates,
               supportedLocales: context.supportedLocales,

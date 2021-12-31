@@ -1,6 +1,6 @@
 import 'package:card_settings/card_settings.dart';
-import 'package:elfatek/card/plumbing/model.dart';
-import 'package:elfatek/constants.dart';
+import '../../card/plumbing/model.dart';
+import '../../constants.dart';
 import 'package:flutter/material.dart';
 
 CardSettingsText buildCardSettingsTextDefault(
@@ -9,7 +9,7 @@ CardSettingsText buildCardSettingsTextDefault(
     TextInputAction inputAction = TextInputAction.done,
     @required String? hintText,
     String? initialValue,
-    @required String? onSavedValue,
+    @required void Function(String?)? onSaved,
     TextEditingController? controller,
     FocusNode? focusNode,
     FocusNode? inputActionNode}) {
@@ -36,8 +36,8 @@ CardSettingsText buildCardSettingsTextDefault(
       if (value == null || value.isEmpty) return '$label is required.';
       return null;
     },
-    onSaved: (value) => onSavedValue = value!,
-    onChanged: (value) => onSavedValue = value,
+    onSaved: onSaved,
+    // onChanged: (value) => onSavedValue = value,
   );
 }
 
@@ -98,7 +98,7 @@ CardSettingsParagraph buildCardSettingsParagraph({
   @required String? label,
   @required String? hintText,
   String? initialValue,
-  @required String? onSavedValue,
+  @required void Function(String?)? onSaved,
   TextEditingController? controller,
   @required int? lines,
 }) {
@@ -109,8 +109,8 @@ CardSettingsParagraph buildCardSettingsParagraph({
     numberOfLines: lines!,
     focusNode: focusNode,
     controller: controller,
-    onSaved: (value) => onSavedValue = value!,
-    onChanged: (value) => onSavedValue = value,
+    onSaved: onSaved,
+    // onChanged: (value) => onSavedValue = value,
   );
 }
 
@@ -121,7 +121,7 @@ CardSettingsListPicker buildCardSettingsListPicker({
   required PickerModel? initialItem,
   TextEditingController? controller,
   required String? hintText,
-  required String? onSavedValue,
+  required void Function(PickerModel?)? onSaved,
 }) {
   return CardSettingsListPicker<PickerModel>(
     key: key,
@@ -135,11 +135,8 @@ CardSettingsListPicker buildCardSettingsListPicker({
         return 'You must pick a $label.';
       return null;
     },
-    onSaved: (value) {
-      onSavedValue = value!.name;
-      // print(value);
-    },
-    onChanged: (value) => onSavedValue = value.name,
+    onSaved: onSaved,
+    // onChanged: (value) => onSavedValue = value.name,
   );
 }
 
@@ -148,23 +145,24 @@ CardSettingsPhone buildCardSettingsNumeric(
     @required String? label,
     @required String? hintText,
     @required int? initialValue,
-    @required int? onSavedValue,
+    void Function(int?)? onSaved,
     @required FocusNode? focusNode,
+    TextEditingController? controller,
     FocusNode? inputActionNode,
     TextInputAction inputAction = TextInputAction.next}) {
   return CardSettingsPhone(
     key: key,
     label: label!,
     initialValue: initialValue,
-    focusNode: focusNode,
+    focusNode: focusNode, controller: controller,
     inputAction: inputAction,
     inputActionNode: inputActionNode, maxLength: 9,
     // autovalidateMode: autoValidateMode,
     validator: (value) {
       return null;
     },
-    // onSaved: (value) => onSavedValue = value!,
-    onChanged: (value) => onSavedValue = value,
+    onSaved: onSaved,
+    // onChanged: (value) => onSavedValue = value,
   );
 }
 
@@ -172,11 +170,13 @@ CardSettingsEmail buildCardSettingsEmail(
     {@required GlobalKey<FormState>? key,
     @required String? label,
     String? initialValue,
-    @required String? onSavedValue,
+    @required void Function(String?)? onSaved,
     @required FocusNode? focusNode,
+    TextEditingController? controller,
     FocusNode? inputActionNode}) {
   return CardSettingsEmail(
     key: key,
+    controller: controller,
     label: label!,
     focusNode: focusNode,
     inputActionNode: inputActionNode,
@@ -190,8 +190,8 @@ CardSettingsEmail buildCardSettingsEmail(
         return "Email not formatted correctly."; // use regex in real application
       return null;
     },
-    onSaved: (value) => onSavedValue = value!,
-    onChanged: (value) => onSavedValue = value,
+    onSaved: onSaved,
+    // onChanged: (value) => onSavedValue = value,
   );
 }
 
@@ -199,14 +199,14 @@ CardSettingsSwitch buildCardSettingsSwitch({
   @required GlobalKey<FormState>? key,
   @required String? label,
   bool? initialValue,
-  @required bool? onSavedValue,
+  @required void Function(bool?)? onSaved,
   void Function(bool)? onChanged,
 }) {
   return CardSettingsSwitch(
     key: key,
     label: label!,
     initialValue: initialValue!,
-    onSaved: (value) => onSavedValue = value!,
+    onSaved: onSaved,
     onChanged: onChanged,
   );
 }

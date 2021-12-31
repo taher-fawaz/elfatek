@@ -14,9 +14,9 @@ String customerRegistrationToJson(CustomerRegistration data) =>
 class CustomerRegistration {
   CustomerRegistration({
     this.id,
-    this.customerName,
-    this.customerTitle,
-    this.customerAuthorizedName,
+    required this.customerName,
+    required this.customerTitle,
+    required this.customerAuthorizedName,
     this.adress,
     this.currentMainGroup,
     this.currentSecondGroup,
@@ -41,7 +41,7 @@ class CustomerRegistration {
     this.availableProductBrand,
     this.productQuantity,
     this.showReference,
-    this.customerSatisfied,
+    required this.customerSatisfied,
     this.explanation,
     this.userId,
     this.createdAt,

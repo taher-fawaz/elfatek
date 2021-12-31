@@ -2,16 +2,12 @@ import 'dart:io' show Platform;
 
 import 'package:adaptive_theme/adaptive_theme.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
-import 'package:elfatek/card/example.dart';
-import 'package:elfatek/constants.dart';
-import 'package:elfatek/controller/api_controller.dart';
-import 'package:elfatek/database/services/posts_services.dart';
-import 'package:elfatek/model/customer_registration.dart';
-import 'package:elfatek/screens/customer_records/customer_records_screen.dart';
+import '../../constants.dart';
+
+import '../customer_records/customer_records_screen.dart';
 import 'package:flutter/foundation.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:multilevel_drawer/multilevel_drawer.dart';
-import '../customer_interview/customer_interview_screen.dart';
 import '../customer_registration/customer_registration.dart';
 import '../home/home_screen.dart';
 import 'package:flutter/material.dart';
@@ -49,7 +45,6 @@ class _MainScreenState extends State<MainScreen> {
     //   // setState(() => autoValidateMode = AutovalidateMode.onUserInteraction);
     // }
   }
-
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
   // final GlobalKey<ExampleFormState> _formWidgetKey =
   //     GlobalKey<ExampleFormState>();
@@ -80,7 +75,7 @@ class _MainScreenState extends State<MainScreen> {
               Icons.save,
               color: Colors.white,
             ),
-            onPressed: () => savePressed(),
+            onPressed: null,
             // (_formWidgetKey.currentState == null)
             //     ?
             // null
