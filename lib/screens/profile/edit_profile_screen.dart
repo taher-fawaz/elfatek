@@ -24,12 +24,13 @@ class _EditProfilePageState extends State<EditProfilePage> {
         padding: EdgeInsets.symmetric(horizontal: 32, vertical: 20),
         physics: BouncingScrollPhysics(),
         children: [
-          // ProfileWidget(
-          //   imagePath: user.imagePath,
-          //   isEdit: true,
-          //   onClicked: () async {},
-          // ),
-          // const SizedBox(height: 24),
+          ProfileWidget(
+            imagePath:
+                'https://t3.ftcdn.net/jpg/03/46/83/96/360_F_346839683_6nAPzbhpSkIpb8pmAwufkC7c5eD7wYws.jpg',
+            isEdit: true,
+            onClicked: () async {},
+          ),
+          const SizedBox(height: 24),
           TextFieldWidget(
             label: 'Full Name',
             text: user.name!,
