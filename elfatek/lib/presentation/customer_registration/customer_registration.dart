@@ -1,6 +1,6 @@
 import 'package:card_settings/card_settings.dart';
-import 'package:elfatek/domain/controller/provider/auth_provider.dart';
-import 'package:elfatek/domain/controller/services/api/customer_record_api.dart';
+import '../../domain/controller/provider/auth_provider.dart';
+import '../../domain/controller/services/api/customer_record_api.dart';
 import 'package:provider/provider.dart';
 import '../../domain/model/customer_registration.dart';
 import '../base/model.dart';

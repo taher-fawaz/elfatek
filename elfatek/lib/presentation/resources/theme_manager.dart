@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'color_manager.dart';
 import 'font_manager.dart';
 import 'styles_manager.dart';
@@ -47,7 +49,10 @@ ThemeData getApplicationTheme(Brightness brightness) {
               primary: ColorManager.primary,
               shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(AppSize.s12)))),
-
+      textButtonTheme: TextButtonThemeData(
+          style: ButtonStyle(
+              textStyle: MaterialStateProperty.all(
+                  TextStyle(color: ColorManager.primary)))),
       // Text theme
       textTheme: _textTheme(),
       // inputDecorationTheme: inputDecorationTheme(),
@@ -73,17 +78,21 @@ ThemeData getApplicationTheme(Brightness brightness) {
           shadowColor: ColorManager.primaryOpacity70,
           titleTextStyle: getRegularStyle(
               color: ColorManager.white, fontSize: FontSize.s16)),
-      textButtonTheme: TextButtonThemeData(
-        style: ButtonStyle(
-          // backgroundColor: MaterialStateProperty.all<Color>(
-          //     Colors.indigo[100]!), // button background color
-          foregroundColor: MaterialStateProperty.all<Color>(
-              Colors.white), // button text color
-        ),
-      ),
+      // textButtonTheme: TextButtonThemeData(
+      //   style: ButtonStyle(
+      //     // backgroundColor: MaterialStateProperty.all<Color>(
+      //     //     Colors.indigo[100]!), // button background color
+      //     foregroundColor: MaterialStateProperty.all<Color>(
+      //         Colors.white), // button text color
+      //   ),
+      // ),
       primaryTextTheme: TextTheme(
         headline6: TextStyle(color: Colors.lightBlue[50]), // app header text
       ),
+      textButtonTheme: TextButtonThemeData(
+          style: ButtonStyle(
+              textStyle: MaterialStateProperty.all(
+                  TextStyle(color: ColorManager.primary)))),
       // inputDecorationTheme: inputDecorationTheme(),
     );
   }

@@ -1,5 +1,7 @@
-import 'package:elfatek/presentation/customer_records/customer_records_screen.dart';
-import 'package:elfatek/presentation/profile/profile_screen.dart';
+import '../customer_records/components/page/editable_page.dart';
+import '../customer_records/customer_records_screen.dart';
+import '../edit_record/edit_record_screen.dart';
+import '../profile/profile_screen.dart';
 
 import '../customer_interview/customer_interview_screen.dart';
 import '../customer_registration/customer_registration.dart';
@@ -25,7 +27,8 @@ class Routes {
   static const String customerRegistrationRoute = "/customerRegistration";
   static const String customerInterviewRoute = "/customerInterview";
   static const String profileRoute = "/profileRoute";
-  static const String cutomerRecordRoute = "/cutomerRecordRoute";
+  static const String customerRecordRoute = "/customerRecordRoute";
+  static const String editRecordRoute = "/editRecordRoute";
 
   static const String storeDetailsRoute = "/storeDetails";
 }
@@ -59,10 +62,12 @@ class RouteGenerator {
       case Routes.profileRoute:
         // initHomeModule();
         return MaterialPageRoute(builder: (_) => ProfilePage());
-      case Routes.cutomerRecordRoute:
+      case Routes.customerRecordRoute:
         // initHomeModule();
         return MaterialPageRoute(builder: (_) => CutomerRecordScreen());
-
+      case Routes.editRecordRoute:
+        // initHomeModule();
+        return MaterialPageRoute(builder: (_) => EditRecordScreen());
       // case Routes.storeDetailsRoute:
       //   initStoreDetailsModule();
       //   return MaterialPageRoute(builder: (_) => StoreDetailsView());

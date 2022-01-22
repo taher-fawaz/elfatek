@@ -1,5 +1,5 @@
-import 'package:elfatek/domain/controller/services/api/base_api.dart';
-import 'package:elfatek/domain/model/user.dart';
+import 'base_api.dart';
+import '../../../model/user.dart';
 import 'package:http/http.dart' as http;
 
 class AuthAPI extends BaseAPI {

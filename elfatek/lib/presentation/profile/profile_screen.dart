@@ -1,9 +1,9 @@
-import 'package:elfatek/domain/controller/provider/auth_provider.dart';
-import 'package:elfatek/domain/model/user.dart';
-import 'package:elfatek/presentation/common/components/app_bar.dart';
-import 'package:elfatek/presentation/profile/edit_profile_screen.dart';
-import 'package:elfatek/presentation/profile/widget/number_widget.dart';
-import 'package:elfatek/presentation/profile/widget/profile_widget.dart';
+import '../../domain/controller/provider/auth_provider.dart';
+import '../../domain/model/user.dart';
+import '../common/components/app_bar.dart';
+import 'edit_profile_screen.dart';
+import 'widget/number_widget.dart';
+import 'widget/profile_widget.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';

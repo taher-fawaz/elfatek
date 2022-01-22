@@ -1,6 +1,6 @@
-import 'package:elfatek/domain/controller/provider/auth_provider.dart';
-import 'package:elfatek/presentation/profile/widget/profile_widget.dart';
-import 'package:elfatek/presentation/profile/widget/textfield_widget.dart';
+import '../../domain/controller/provider/auth_provider.dart';
+import 'widget/profile_widget.dart';
+import 'widget/textfield_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 

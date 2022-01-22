@@ -1,6 +1,6 @@
-import 'package:elfatek/domain/controller/provider/auth_provider.dart';
-import 'package:elfatek/domain/model/user.dart';
-import 'package:elfatek/presentation/login_success/login_success_screen.dart';
+import '../../../domain/controller/provider/auth_provider.dart';
+import '../../../domain/model/user.dart';
+import '../../login_success/login_success_screen.dart';
 import 'package:http/http.dart';
 import 'package:provider/provider.dart';
 

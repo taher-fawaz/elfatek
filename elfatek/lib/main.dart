@@ -1,6 +1,6 @@
 import 'package:adaptive_theme/adaptive_theme.dart';
 import 'package:easy_localization/easy_localization.dart';
-import 'package:elfatek/domain/controller/provider/auth_provider.dart';
+import 'domain/controller/provider/auth_provider.dart';
 import 'presentation/resources/size_config.dart';
 import 'presentation/resources/routes_manager.dart';
 import 'presentation/resources/theme_manager.dart';

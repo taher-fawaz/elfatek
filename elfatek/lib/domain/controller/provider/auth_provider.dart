@@ -1,10 +1,10 @@
 import 'dart:convert';
 
-import 'package:elfatek/domain/controller/services/api/auth_api.dart';
-import 'package:elfatek/domain/model/user.dart';
-import 'package:elfatek/presentation/login/sign_in_screen.dart';
-import 'package:elfatek/presentation/resources/routes_manager.dart';
-import 'package:elfatek/presentation/resources/strings_manager.dart';
+import '../services/api/auth_api.dart';
+import '../../model/user.dart';
+import '../../../presentation/login/sign_in_screen.dart';
+import '../../../presentation/resources/routes_manager.dart';
+import '../../../presentation/resources/strings_manager.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;

@@ -2,7 +2,7 @@ import 'dart:io' show Platform;
 
 import 'package:adaptive_theme/adaptive_theme.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
-import 'package:elfatek/presentation/resources/routes_manager.dart';
+import '../resources/routes_manager.dart';
 import '../customer_interview/customer_interview_screen.dart';
 import '../customer_registration/customer_registration.dart';
 import '../resources/assets_manager.dart';
@@ -154,7 +154,7 @@ class _MainScreenState extends State<MainScreen> {
                         MLSubmenu(
                             onClick: () {
                               Navigator.pushNamed(
-                                  context, Routes.cutomerRecordRoute);
+                                  context, Routes.customerRecordRoute);
                             },
                             submenuContent: const Text(AppStrings.recordList)),
                         MLSubmenu(
