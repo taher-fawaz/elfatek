@@ -1,8 +1,6 @@
-// import 'package:elfatek/database/services/posts_services.dart';
-// import 'package:elfatek/model/customer_registration.dart';
 // import 'package:http/http.dart' as http;
 
-// class ApiController implements BasicServices {
+// class Api {
 //   final requestHeaders = {
 //     'Content-type': 'application/json',
 //     'Accept': 'application/json',

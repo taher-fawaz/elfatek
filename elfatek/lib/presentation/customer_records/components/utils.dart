@@ -1,4 +1,4 @@
-import '../../../domain/model/customer_registration.dart';
+import '../../../features/customer_registration/domain/models/customer_registration.dart';
 
 class Utils {
   static List<T> modelBuilder<M, T>(

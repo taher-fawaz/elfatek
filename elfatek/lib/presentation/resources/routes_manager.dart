@@ -6,7 +6,7 @@ import '../profile/profile_screen.dart';
 import '../customer_interview/customer_interview_screen.dart';
 import '../customer_registration/customer_registration.dart';
 import '../forgot_password/forgot_password_screen.dart';
-import '../login/sign_in_screen.dart';
+import '../../features/auth/screens/sign_in_screen.dart';
 import '../login_success/login_success_screen.dart';
 import '../main/main_screen.dart';
 

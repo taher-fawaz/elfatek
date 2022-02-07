@@ -1,5 +1,9 @@
 import 'dart:async';
 
+import 'package:elfatek/features/auth/providers/auth_provider.dart';
+import 'package:elfatek/features/auth/providers/user_provider.dart';
+import 'package:provider/provider.dart';
+
 import '../resources/size_config.dart';
 
 import '../../app/app_prefs.dart';
@@ -24,12 +28,12 @@ class _SplashScreenState extends State<SplashScreen> {
     _timer = Timer(Duration(seconds: 2), _goNext);
   }
 
-  _goNext() async {
+  Future _goNext() async {
     _appPreferences.isUserLoggedIn().then((isUserLoggedIn) => {
           if (isUserLoggedIn)
             {
+              Navigator.pushReplacementNamed(context, Routes.mainRoute),
               // navigate to main screen
-              Navigator.pushReplacementNamed(context, Routes.mainRoute)
             }
           else
             {
@@ -65,6 +69,7 @@ class _SplashScreenState extends State<SplashScreen> {
 
   @override
   Widget build(BuildContext context) {
+    Provider.of<UserProvider>(context).getUser();
     SizeConfig().init(context);
 
     return Scaffold(

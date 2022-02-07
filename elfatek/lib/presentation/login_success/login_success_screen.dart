@@ -11,14 +11,14 @@ class LoginSuccessScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     // final userProvider = Provider.of<AuthProvider>(context);
 
-    return Scaffold(
-      appBar: AppBar(leading: const SizedBox(), title: Text("Hello")
-          // Consumer<AuthProvider>(builder: (context, value, child) {
-          //   return
-          //  Text("Hello ${value.user.name}");
-          // }),
-          ),
-      body: const Body(),
+    return SizedBox(
+      // appBar: AppBar(leading: const SizedBox(), title: Text("Hello")
+      // Consumer<AuthProvider>(builder: (context, value, child) {
+      //   return
+      //  Text("Hello ${value.user.name}");
+      // }),
+      // ),
+      child: const Body(),
     );
   }
 }

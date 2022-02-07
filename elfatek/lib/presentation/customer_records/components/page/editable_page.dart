@@ -1,8 +1,9 @@
 import 'package:card_settings/models/picker_model.dart';
-import '../../../../domain/controller/provider/auth_provider.dart';
+import 'package:elfatek/features/auth/providers/user_provider.dart';
+import '../../../../features/auth/providers/auth_provider.dart';
 import '../../../../domain/controller/provider/customer_revord_provider.dart';
 import '../../../../domain/controller/services/api/customer_record_api.dart';
-import '../../../../domain/model/customer_registration.dart';
+import '../../../../features/customer_registration/domain/models/customer_registration.dart';
 import '../utils.dart';
 import '../widget/scrollable_widget.dart';
 import '../widget/text_dialog_widget.dart';
@@ -14,7 +15,7 @@ import '../../../resources/translations/locale_keys.g.dart';
 import 'package:provider/provider.dart';
 
 class EditablePage extends StatefulWidget {
-  final List<CustomerRegistration>? customerRegistrationList;
+  final List<CustomerRegistrationModel>? customerRegistrationList;
   bool? isEditMode;
   EditablePage({Key? key, this.customerRegistrationList, this.isEditMode})
       : super(key: key);
@@ -30,8 +31,8 @@ class _EditablePageState extends State<EditablePage> {
   }
 
   @override
-  Widget build(BuildContext context) => Scaffold(
-        body: ScrollableWidget(child: buildDataTable()),
+  Widget build(BuildContext context) => ScrollableWidget(
+        child: buildDataTable(),
       );
 
   Widget buildDataTable() {
@@ -66,7 +67,7 @@ class _EditablePageState extends State<EditablePage> {
       LocaleKeys.show_reference.tr(),
       LocaleKeys.customer_satisfied.tr(),
       LocaleKeys.If_not_reason.tr(),
-      'asas',
+      // 'asas',
     ];
 
     return DataTable(
@@ -89,8 +90,8 @@ class _EditablePageState extends State<EditablePage> {
     }).toList();
   }
 
-  List<DataRow> getRows(List<CustomerRegistration> users) =>
-      users.map((CustomerRegistration customerRegistration) {
+  List<DataRow> getRows(List<CustomerRegistrationModel> users) =>
+      users.map((CustomerRegistrationModel customerRegistration) {
         final cells = [
           customerRegistration.id,
           customerRegistration.customerName,
@@ -113,7 +114,7 @@ class _EditablePageState extends State<EditablePage> {
           customerRegistration.websiteAddress,
           customerRegistration.isActive,
           customerRegistration.customerStatus,
-          // customerRegistration.customerRepresentative,
+          customerRegistration.customerRepresentative,
           customerRegistration.franchisePossibility,
           customerRegistration.dealerProbability,
           customerRegistration.registrationDate,
@@ -123,8 +124,8 @@ class _EditablePageState extends State<EditablePage> {
           customerRegistration.customerSatisfied,
           customerRegistration.explanation,
           // customerRegistration.userId,
-          customerRegistration.createdAt,
-          customerRegistration.updatedAt,
+          // customerRegistration.createdAt,
+          // customerRegistration.updatedAt,
         ];
 
         return DataRow(
@@ -152,7 +153,7 @@ class _EditablePageState extends State<EditablePage> {
 
   Future editStringValue(
       editCustomerRegistration, int index, cells, BuildContext context) async {
-    final userProvider = Provider.of<AuthProvider>(context, listen: false).user;
+    final userProvider = Provider.of<UserProvider>(context, listen: false).user;
 
     TextEditingController? controller = TextEditingController(
       text: editCustomerRegistration,

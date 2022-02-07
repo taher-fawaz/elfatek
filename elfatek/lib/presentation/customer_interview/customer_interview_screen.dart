@@ -1,6 +1,6 @@
 import 'package:card_settings/card_settings.dart';
 import 'package:easy_localization/easy_localization.dart';
-import '../../domain/controller/provider/auth_provider.dart';
+import '../../features/auth/providers/auth_provider.dart';
 import '../../domain/controller/services/api/customer_record_api.dart';
 import '../../domain/model/customer_interview.dart';
 import 'package:provider/provider.dart';
@@ -74,7 +74,7 @@ class _CustomerInterviewScreenState extends State<CustomerInterviewScreen>
 
   @override
   Widget build(BuildContext context) {
-    final userProvider = Provider.of<AuthProvider>(context).user;
+    // final userProvider = Provider.of<AuthProvider>(context).user;
 
     TabController controller =
         TabController(length: 2, vsync: this, initialIndex: pageIndex);
@@ -171,7 +171,8 @@ class _CustomerInterviewScreenState extends State<CustomerInterviewScreen>
                       interviewStatus: const PickerModel('name').name,
                       isOffered: 1,
                       meetingHour: '${datetime.hour}:${datetime.minute}',
-                      userId: userProvider.id,
+                      userId: 2,
+                      //userProvider.id,
                       interviewDate: DateTime.now(),
                       interviewNextDate: DateTime.now(),
                       createdAt: DateTime.now(),

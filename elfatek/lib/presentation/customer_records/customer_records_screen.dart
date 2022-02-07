@@ -1,7 +1,8 @@
 import 'package:card_settings/card_settings.dart';
-import '../../domain/controller/provider/auth_provider.dart';
+import 'package:elfatek/features/auth/providers/user_provider.dart';
+import '../../features/auth/providers/auth_provider.dart';
 import '../../domain/controller/services/api/customer_record_api.dart';
-import '../../domain/model/customer_registration.dart';
+import '../../features/customer_registration/domain/models/customer_registration.dart';
 import '../common/components/edit_records_list.dart';
 import 'components/page/editable_page.dart';
 import '../resources/color_manager.dart';
@@ -26,7 +27,7 @@ class _CutomerRecordScreenState extends State<CutomerRecordScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final userProvider = Provider.of<AuthProvider>(context).user;
+    final userProvider = Provider.of<UserProvider>(context, listen: false).user;
 
     return Scaffold(
       appBar: AppBar(

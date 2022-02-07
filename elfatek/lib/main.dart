@@ -1,6 +1,7 @@
 import 'package:adaptive_theme/adaptive_theme.dart';
 import 'package:easy_localization/easy_localization.dart';
-import 'domain/controller/provider/auth_provider.dart';
+import 'package:elfatek/features/auth/providers/user_provider.dart';
+import 'features/auth/providers/auth_provider.dart';
 import 'presentation/resources/size_config.dart';
 import 'presentation/resources/routes_manager.dart';
 import 'presentation/resources/theme_manager.dart';
@@ -35,8 +36,15 @@ class MyApp extends StatelessWidget {
       light: getApplicationTheme(Brightness.light),
       dark: getApplicationTheme(Brightness.dark),
       builder: (_, theme) {
-        return ChangeNotifierProvider(
-            create: (_) => AuthProvider(),
+        return MultiProvider(
+            providers: [
+              ChangeNotifierProvider(
+                create: (_) => AuthProvider(),
+              ),
+              ChangeNotifierProvider(
+                create: (_) => UserProvider(),
+              )
+            ],
             child: MaterialApp(
               localizationsDelegates: context.localizationDelegates,
               supportedLocales: context.supportedLocales,

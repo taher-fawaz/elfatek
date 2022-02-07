@@ -2,6 +2,9 @@ import 'dart:io' show Platform;
 
 import 'package:adaptive_theme/adaptive_theme.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
+import 'package:elfatek/features/auth/domain/services/auth_service.dart';
+import 'package:elfatek/features/auth/providers/auth_provider.dart';
+import 'package:elfatek/features/auth/providers/user_provider.dart';
 import '../resources/routes_manager.dart';
 import '../customer_interview/customer_interview_screen.dart';
 import '../customer_registration/customer_registration.dart';
@@ -46,10 +49,12 @@ class _MainScreenState extends State<MainScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final authProvider = Provider.of<AuthProvider>(context, listen: true);
+    final userProvider = Provider.of<UserProvider>(context, listen: true);
+
     // final userProvider = Provider.of<AuthProvider>(context);
-
+    // final user = Provider.of<AuthProvider>(context);
     final size = MediaQuery.of(context).size;
-
     return Scaffold(
       appBar: AppBar(
         elevation: 0,
@@ -169,15 +174,9 @@ class _MainScreenState extends State<MainScreen> {
                       style: Theme.of(context).textTheme.subtitle1,
                     ),
                     onClick: () async {
-                      // AuthProvider().logout(userProvider.user, context);
-                      // // AuthProvider().isSignOut().then((value) {
-                      // //   print('value2 $value');
-
-                      // //   if (value == true) {
-                      // //     Navigator.pushReplacementNamed(
-                      // //         context, SignInScreen.routeName);
-                      // //   }
-                      // // });
+                      authProvider.logout(userProvider.user).then((value) =>
+                          Navigator.pushReplacementNamed(
+                              context, Routes.loginRoute));
                     },
                   ),
                 ],

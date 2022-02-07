@@ -1,6 +1,6 @@
 import '../services/api/customer_record_api.dart';
 
-import '../../model/customer_registration.dart';
+import '../../../features/customer_registration/domain/models/customer_registration.dart';
 import 'package:flutter/material.dart';
 
 class CutomerRecords with ChangeNotifier {
@@ -16,11 +16,11 @@ class CutomerRecords with ChangeNotifier {
       index,
       value,
       userId,
-      List<CustomerRegistration> customerRegistrationList) async {
-    CustomerRegistration cr = customerRegistrationList
-        .firstWhere((CustomerRegistration cr) => cr.id == cells[0]);
+      List<CustomerRegistrationModel> customerRegistrationList) async {
+    CustomerRegistrationModel cr = customerRegistrationList
+        .firstWhere((CustomerRegistrationModel cr) => cr.id == cells[0]);
     cells[index] = value;
-    cr = CustomerRegistration(
+    cr = CustomerRegistrationModel(
       customerName: cells[1],
       customerTitle: cells[2],
       customerAuthorizedName: cells[3],

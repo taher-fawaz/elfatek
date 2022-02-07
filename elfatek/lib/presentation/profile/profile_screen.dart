@@ -1,5 +1,7 @@
-import '../../domain/controller/provider/auth_provider.dart';
-import '../../domain/model/user.dart';
+import 'package:elfatek/features/auth/providers/user_provider.dart';
+
+import '../../features/auth/providers/auth_provider.dart';
+import '../../features/auth/domain/models/user.dart';
 import '../common/components/app_bar.dart';
 import 'edit_profile_screen.dart';
 import 'widget/number_widget.dart';
@@ -18,7 +20,7 @@ class ProfilePage extends StatefulWidget {
 class _ProfilePageState extends State<ProfilePage> {
   @override
   Widget build(BuildContext context) {
-    final user = Provider.of<AuthProvider>(context).user;
+    final user = Provider.of<UserProvider>(context).user;
 
     return Scaffold(
       appBar: appBar(context),

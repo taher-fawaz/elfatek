@@ -1,7 +1,6 @@
-import '../resources/strings_manager.dart';
+import '../../../presentation/resources/strings_manager.dart';
 import 'package:flutter/material.dart';
-
-import 'components/body.dart';
+import 'package:elfatek/features/auth/screens/components/body.dart';
 
 class SignInScreen extends StatelessWidget {
   static String routeName = "/sign_in";

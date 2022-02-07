@@ -1,18 +1,18 @@
 // To parse this JSON data, do
 //
-//     final customerRegistration = customerRegistrationFromJson(jsonString);
+//     final customerRegistrationModel = customerRegistrationModelFromJson(jsonString);
 
 import 'dart:convert';
 
-List<CustomerRegistration> customerRegistrationFromJson(String str) =>
-    List<CustomerRegistration>.from(
-        json.decode(str).map((x) => CustomerRegistration.fromJson(x)));
+List<CustomerRegistrationModel> customerRegistrationModelFromJson(String str) =>
+    List<CustomerRegistrationModel>.from(
+        json.decode(str).map((x) => CustomerRegistrationModel.fromJson(x)));
 
-String customerRegistrationToJson(CustomerRegistration data) =>
+String customerRegistrationModelToJson(CustomerRegistrationModel data) =>
     json.encode(data.toJson());
 
-class CustomerRegistration {
-  CustomerRegistration({
+class CustomerRegistrationModel {
+  CustomerRegistrationModel({
     this.id,
     required this.customerName,
     required this.customerTitle,
@@ -82,8 +82,8 @@ class CustomerRegistration {
   DateTime? createdAt;
   DateTime? updatedAt;
 
-  factory CustomerRegistration.fromJson(Map<String, dynamic> json) =>
-      CustomerRegistration(
+  factory CustomerRegistrationModel.fromJson(Map<String, dynamic> json) =>
+      CustomerRegistrationModel(
         id: json["id"],
         customerName: json["customer_name"],
         customerTitle: json["customer_title"],
@@ -124,35 +124,35 @@ class CustomerRegistration {
         "customer_name": customerName,
         "customer_title": customerTitle,
         "customer_authorized_name": customerAuthorizedName,
-        "adress": adress ?? '',
-        "current_main_group": currentMainGroup ?? '',
-        "current_second_group": currentSecondGroup ?? '',
-        "city": city ?? '',
-        "district": district ?? '',
-        "country": country ?? '',
+        "adress": adress ?? 'No Adress',
+        "current_main_group": currentMainGroup ?? 'No Group',
+        "current_second_group": currentSecondGroup ?? 'No Group',
+        "city": city ?? 'No City',
+        "district": district ?? 'No district',
+        "country": country ?? 'No country',
         "business_phone_1": businessPhone1 ?? 0,
         "business_phone_2": businessPhone2 ?? 0,
         "fax_number": faxNumber ?? 0,
         "gsm_number": gsmNumber ?? 0,
-        "tax_administration": taxAdministration ?? '',
+        "tax_administration": taxAdministration ?? 'No',
         "tax_number": taxNumber ?? 0,
-        "email_1": email1 ?? '',
-        "email_2": email2 ?? '',
-        "website_address": websiteAddress ?? '',
+        "email_1": email1 ?? 'No',
+        "email_2": email2 ?? 'No',
+        "website_address": websiteAddress ?? 'No',
         "is_active": isActive ?? 0,
-        "customer_status": customerStatus ?? '',
-        "customer_representative": customerRepresentative ?? '',
+        "customer_status": customerStatus ?? 'No',
+        "customer_representative": customerRepresentative ?? 'No',
         "franchise_possibility": franchisePossibility ?? 0,
         "dealer_probability": dealerProbability ?? 0,
         "registration_date":
             "${registrationDate!.year.toString().padLeft(4, '0')}-${registrationDate!.month.toString().padLeft(2, '0')}-${registrationDate!.day.toString().padLeft(2, '0')}",
-        "available_product_brand": availableProductBrand ?? '',
+        "available_product_brand": availableProductBrand ?? 'No',
         "product_quantity": productQuantity ?? 0,
         "show_reference": showReference ?? 0,
         "customer_satisfied": customerSatisfied ?? 0,
-        "explanation": explanation ?? '',
+        "explanation": explanation ?? 'No',
         "user_id": userId,
-        "created_at": createdAt!.toIso8601String(),
-        "updated_at": updatedAt!.toIso8601String(),
+        "created_at": DateTime.now().toIso8601String(),
+        "updated_at": DateTime.now().toIso8601String(),
       };
 }

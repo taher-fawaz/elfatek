@@ -1,8 +1,9 @@
 import 'package:card_settings/card_settings.dart';
-import '../../domain/controller/provider/auth_provider.dart';
+import 'package:elfatek/app/app_prefs.dart';
+import '../../features/auth/providers/auth_provider.dart';
 import '../../domain/controller/services/api/customer_record_api.dart';
 import 'package:provider/provider.dart';
-import '../../domain/model/customer_registration.dart';
+import '../../features/customer_registration/domain/models/customer_registration.dart';
 import '../base/model.dart';
 import '../common/card_textfield.dart';
 import '../common/card_setting.dart';
@@ -96,25 +97,11 @@ class _CustomerRegistrationScreenState extends State<CustomerRegistrationScreen>
 
   final TextEditingController customerStatusController =
       TextEditingController();
-  // final FocusNode _titleNode = FocusNode();
-
-  // final FocusNode _nameNode = FocusNode();
-  // final FocusNode _taxNumberNode3 = FocusNode();
-  // final FocusNode _representativeNode = FocusNode();
-  // final FocusNode _taxNumberNode2 = FocusNode();
-  // final FocusNode _businessPhone1Node = FocusNode();
-  // final FocusNode _businessPhone2Node = FocusNode();
-  // final FocusNode _faxNumberNode = FocusNode();
-  // final FocusNode _gsmNumberNode = FocusNode();
-  // final FocusNode _websiteNode = FocusNode();
-  // final FocusNode _email1Node = FocusNode();
-  // final FocusNode _email2Node = FocusNode();
-  // final FocusNode _taxNumberNode = FocusNode();
 
   final GlobalKey<FormState> _mainGroupKey = GlobalKey<FormState>();
   final GlobalKey<FormState> _secondGroupKey = GlobalKey<FormState>();
 
-  CustomerRegistration customerRegistration = CustomerRegistration(
+  CustomerRegistrationModel customerRegistration = CustomerRegistrationModel(
     customerName: 'a',
     customerTitle: '',
     customerAuthorizedName: '',
@@ -131,24 +118,15 @@ class _CustomerRegistrationScreenState extends State<CustomerRegistrationScreen>
   double probability = 7;
   String cityValue = '';
   String countryValue = '';
-
-  // void _saveForm() {
-  //   final isValid = _formKey.currentState!.validate();
-  //   if (!isValid) {
-  //     return;
-  //   }
-
-  //   _formKey.currentState!.save();
-  //   Provider.of<CutomerRecords>(context).addRecord(CustomerRegistration(
-  //       customerName: cusnameController.text,
-  //       customerTitle: cusTitleController.text,
-  //       customerAuthorizedName: cusRepController.text,
-  //       customerSatisfied: isCutomerSastify ? 1 : 0));
-  // }
+  func() async {
+    String _appPreferences = await AppPreferences.instance.getUserToken();
+    print('Hello ${_appPreferences}');
+  }
 
   @override
   Widget build(BuildContext context) {
-    final userProvider = Provider.of<AuthProvider>(context).user;
+    // final userProvider = Provider.of<AuthProvider>(context).user;
+    func();
     TabController controller =
         TabController(length: 4, vsync: this, initialIndex: pageIndex);
     return DefaultTabController(
@@ -290,11 +268,11 @@ class _CustomerRegistrationScreenState extends State<CustomerRegistrationScreen>
                       //   print('object2 ${_formKey.currentState!}');
                       // }
                       await CustomerRecordsAPI()
-                          .createCustomerRecord(CustomerRegistration(
+                          .createCustomerRecord(CustomerRegistrationModel(
                         customerName: cusTitleController.text,
                         customerTitle: cusTitleController.text,
                         customerAuthorizedName: cusRepController.text,
-                        userId: userProvider.id,
+                        // userId: userProvider.id,
                         customerSatisfied: isCutomerSastify ? 1 : 0,
                         adress: adressController.text,
                         availableProductBrand:

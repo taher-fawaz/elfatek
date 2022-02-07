@@ -71,9 +71,9 @@ class AppPreferences {
         .then((prefs) => prefs.getString(PREFS_KEY_TOKEN) ?? "");
   }
 
-  Future<void> setIsUserLoggedIn() async {
-    await _sharedPreferences
-        .then((prefs) => prefs.setBool(PREFS_KEY_IS_USER_LOGGED_IN, true));
+  Future<void> setIsUserLoggedIn(bool isUserLoggedIn) async {
+    await _sharedPreferences.then(
+        (prefs) => prefs.setBool(PREFS_KEY_IS_USER_LOGGED_IN, isUserLoggedIn));
   }
 
   Future<bool> isUserLoggedIn() async {
