@@ -3,8 +3,8 @@ import '../customer_records/customer_records_screen.dart';
 import '../edit_record/edit_record_screen.dart';
 import '../profile/profile_screen.dart';
 
-import '../customer_interview/customer_interview_screen.dart';
-import '../customer_registration/customer_registration.dart';
+import '../../features/customer_interview/customer_interview_screen.dart';
+import '../../features/customer_registration/screens/customer_registration.dart';
 import '../forgot_password/forgot_password_screen.dart';
 import '../../features/auth/screens/sign_in_screen.dart';
 import '../login_success/login_success_screen.dart';

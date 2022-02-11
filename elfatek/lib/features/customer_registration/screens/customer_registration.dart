@@ -1,21 +1,17 @@
 import 'package:card_settings/card_settings.dart';
+import 'package:elfatek/app/api/customer_record_api.dart';
 import 'package:elfatek/app/app_prefs.dart';
-import '../../features/auth/providers/auth_provider.dart';
-import '../../domain/controller/services/api/customer_record_api.dart';
+import 'package:elfatek/features/auth/providers/user_provider.dart';
+import 'package:elfatek/features/customer_registration/screens/components/customer_contacts.dart';
+import 'package:elfatek/features/customer_registration/screens/components/customer_details.dart';
+import 'package:elfatek/features/customer_registration/screens/components/customer_product_details.dart';
+import 'package:elfatek/features/customer_registration/screens/components/customer_status.dart';
 import 'package:provider/provider.dart';
-import '../../features/customer_registration/domain/models/customer_registration.dart';
-import '../base/model.dart';
-import '../common/card_textfield.dart';
-import '../common/card_setting.dart';
-import 'components/customer_contacts.dart';
-import 'components/customer_details.dart';
-import 'components/customer_product_details.dart';
-import 'components/customer_status.dart';
-import '../resources/color_manager.dart';
-import '../resources/translations/locale_keys.g.dart';
-import 'package:flutter/material.dart';
+import '../domain/models/customer_registration.dart';
+import '../../../presentation/base/model.dart';
 
-import 'package:easy_localization/easy_localization.dart';
+import '../../../presentation/resources/color_manager.dart';
+import 'package:flutter/material.dart';
 
 class CustomerRegistrationScreen extends StatefulWidget {
   static String routeName = "/customer_registration";
@@ -125,7 +121,7 @@ class _CustomerRegistrationScreenState extends State<CustomerRegistrationScreen>
 
   @override
   Widget build(BuildContext context) {
-    // final userProvider = Provider.of<AuthProvider>(context).user;
+    final userProvider = Provider.of<UserProvider>(context).user;
     func();
     TabController controller =
         TabController(length: 4, vsync: this, initialIndex: pageIndex);
@@ -259,16 +255,9 @@ class _CustomerRegistrationScreenState extends State<CustomerRegistrationScreen>
                     secondGroupKey: _secondGroupKey,
                     onChangedisShowRefrence: (val) => isShowRefrence = val,
                     onPressed: () async {
-                      // _formKey.currentState!.save();
-                      // print(cusTitleController.text);
-                      // print(_currentProductBrandController.text);
-
-                      // if (_formKey.currentState!.validate()) {
-                      //   _formKey.currentState!.save();
-                      //   print('object2 ${_formKey.currentState!}');
-                      // }
                       await CustomerRecordsAPI()
                           .createCustomerRecord(CustomerRegistrationModel(
+                        userId: userProvider.id,
                         customerName: cusTitleController.text,
                         customerTitle: cusTitleController.text,
                         customerAuthorizedName: cusRepController.text,

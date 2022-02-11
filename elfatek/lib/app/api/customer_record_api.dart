@@ -1,5 +1,6 @@
+import 'package:elfatek/features/customer_interview/domain/model/customer_interview.dart';
+
 import 'base_api.dart';
-import '../../../model/customer_interview.dart';
 import '../../../../features/customer_registration/domain/models/customer_registration.dart';
 import 'package:http/http.dart' as http;
 

@@ -1,7 +1,6 @@
 import 'dart:convert';
 
 import 'package:elfatek/app/app_prefs.dart';
-import 'package:elfatek/domain/controller/services/api/base_api.dart';
 import 'package:elfatek/features/auth/domain/models/user.dart';
 import 'package:http/http.dart' as http;
 

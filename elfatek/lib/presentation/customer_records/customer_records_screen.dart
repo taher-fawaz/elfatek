@@ -1,12 +1,8 @@
-import 'package:card_settings/card_settings.dart';
+import 'package:elfatek/app/api/customer_record_api.dart';
 import 'package:elfatek/features/auth/providers/user_provider.dart';
-import '../../features/auth/providers/auth_provider.dart';
-import '../../domain/controller/services/api/customer_record_api.dart';
-import '../../features/customer_registration/domain/models/customer_registration.dart';
 import '../common/components/edit_records_list.dart';
 import 'components/page/editable_page.dart';
 import '../resources/color_manager.dart';
-import '../resources/size_config.dart';
 import 'package:provider/provider.dart';
 
 import 'package:flutter/material.dart';

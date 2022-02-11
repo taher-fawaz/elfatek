@@ -1,7 +1,5 @@
 // extension on String
 
-import 'package:elfatek/data/mapper/mapper.dart';
-
 const EMPTY = "";
 const ZERO = 0;
 

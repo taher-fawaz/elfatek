@@ -1,17 +1,13 @@
 import 'package:card_settings/card_settings.dart';
-import 'package:easy_localization/easy_localization.dart';
-import '../../features/auth/providers/auth_provider.dart';
-import '../../domain/controller/services/api/customer_record_api.dart';
-import '../../domain/model/customer_interview.dart';
+import 'package:elfatek/app/api/customer_record_api.dart';
+import 'package:elfatek/features/auth/providers/user_provider.dart';
+import 'package:elfatek/features/customer_interview/components/interview_details.dart';
+import 'package:elfatek/features/customer_interview/components/interview_status.dart';
 import 'package:provider/provider.dart';
-import '../base/model.dart';
-import '../common/card_textfield.dart';
-import 'components/interview_details.dart';
-import 'components/interview_status.dart';
-import '../resources/color_manager.dart';
-import '../resources/translations/locale_keys.g.dart';
+import 'domain/model/customer_interview.dart';
+import '../../presentation/base/model.dart';
+import '../../presentation/resources/color_manager.dart';
 
-import 'components/body.dart';
 import 'package:flutter/material.dart';
 
 class CustomerInterviewScreen extends StatefulWidget {
@@ -74,7 +70,7 @@ class _CustomerInterviewScreenState extends State<CustomerInterviewScreen>
 
   @override
   Widget build(BuildContext context) {
-    // final userProvider = Provider.of<AuthProvider>(context).user;
+    final userProvider = Provider.of<UserProvider>(context).user;
 
     TabController controller =
         TabController(length: 2, vsync: this, initialIndex: pageIndex);
@@ -171,7 +167,7 @@ class _CustomerInterviewScreenState extends State<CustomerInterviewScreen>
                       interviewStatus: const PickerModel('name').name,
                       isOffered: 1,
                       meetingHour: '${datetime.hour}:${datetime.minute}',
-                      userId: 2,
+                      userId: userProvider.id,
                       //userProvider.id,
                       interviewDate: DateTime.now(),
                       interviewNextDate: DateTime.now(),

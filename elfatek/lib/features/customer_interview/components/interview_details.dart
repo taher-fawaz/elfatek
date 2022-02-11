@@ -1,9 +1,9 @@
 import 'package:card_settings/card_settings.dart';
-import '../../base/model.dart';
-import '../../common/card_setting.dart';
-import '../../common/card_setting_section.dart';
-import '../../common/card_textfield.dart';
-import '../../resources/translations/locale_keys.g.dart';
+import 'package:elfatek/presentation/base/model.dart';
+import 'package:elfatek/presentation/common/card_setting.dart';
+import 'package:elfatek/presentation/common/card_setting_section.dart';
+import 'package:elfatek/presentation/common/card_textfield.dart';
+import 'package:elfatek/presentation/resources/translations/locale_keys.g.dart';
 import 'package:flutter/material.dart';
 import 'package:easy_localization/easy_localization.dart';
 

@@ -1,4 +1,4 @@
-import '../services/api/customer_record_api.dart';
+import 'package:elfatek/app/api/customer_record_api.dart';
 
 import '../../../features/customer_registration/domain/models/customer_registration.dart';
 import 'package:flutter/material.dart';

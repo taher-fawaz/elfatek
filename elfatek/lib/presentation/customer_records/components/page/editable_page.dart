@@ -1,17 +1,12 @@
-import 'package:card_settings/models/picker_model.dart';
 import 'package:elfatek/features/auth/providers/user_provider.dart';
-import '../../../../features/auth/providers/auth_provider.dart';
 import '../../../../domain/controller/provider/customer_revord_provider.dart';
-import '../../../../domain/controller/services/api/customer_record_api.dart';
 import '../../../../features/customer_registration/domain/models/customer_registration.dart';
 import '../utils.dart';
 import '../widget/scrollable_widget.dart';
-import '../widget/text_dialog_widget.dart';
 import '../../../resources/color_manager.dart';
 import '../../../resources/translations/locale_keys.g.dart';
 import 'package:flutter/material.dart';
 import 'package:easy_localization/easy_localization.dart';
-import '../../../resources/translations/locale_keys.g.dart';
 import 'package:provider/provider.dart';
 
 class EditablePage extends StatefulWidget {

@@ -1,10 +1,9 @@
 import 'package:card_settings/card_settings.dart';
-import '../../base/model.dart';
-import '../../common/card_setting.dart';
-import '../../common/card_textfield.dart';
-
+import 'package:elfatek/presentation/base/model.dart';
+import 'package:elfatek/presentation/common/card_setting.dart';
+import 'package:elfatek/presentation/common/card_setting_section.dart';
+import 'package:elfatek/presentation/common/card_textfield.dart';
 import 'package:flutter/material.dart';
-import '../../common/card_setting_section.dart';
 
 class CustomerContactsSection extends StatefulWidget {
   final TextEditingController? businessPhone1Controller;
